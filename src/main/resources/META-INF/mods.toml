@@ -1,0 +1,26 @@
+modLoader="javafml"
+loaderVersion="[43,)"
+license="LGPL"
+
+[[mods]]
+modId="shiftedlib"
+version="1.0.0"
+displayName="Shifted Lib"
+logoFile=""
+credits="Mojang Studios, Forge Team"
+authors="Sajeyson"
+description="Libray for my mods."
+
+[[dependencies.shiftedlib]]
+    modId="forge"
+    mandatory=true
+    versionRange="[43,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.shiftedlib]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.19.2,1.20)"
+    ordering="NONE"
+    side="BOTH"

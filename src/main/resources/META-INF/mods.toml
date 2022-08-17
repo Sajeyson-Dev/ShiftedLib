@@ -1,15 +1,15 @@
 modLoader="javafml"
 loaderVersion="[43,)"
-license="LGPL"
+license="LGPL-2.1"
 
 [[mods]]
 modId="shiftedlib"
 version="1.0.0"
 displayName="Shifted Lib"
-logoFile=""
+logoFile="icon.png"
 credits="Mojang Studios, Forge Team"
 authors="Sajeyson"
-description="Libray for my mods."
+description="Library for my mods."
 
 [[dependencies.shiftedlib]]
     modId="forge"

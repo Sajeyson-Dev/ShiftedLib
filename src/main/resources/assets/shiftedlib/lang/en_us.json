@@ -1,0 +1,8 @@
+{
+    "tooltip.shiftedlib.shift": "Hold Shift",
+    "tooltip.shiftedlib.onhit": "On hit",
+    "tooltip.shiftedlib.onmine": "When mining",
+    "tooltip.shiftedlib.onthrow": "On throw",
+    "tooltip.shiftedlib.onuse": "When using",
+    "tooltip.shiftedlib.fullset": "On full set"
+}

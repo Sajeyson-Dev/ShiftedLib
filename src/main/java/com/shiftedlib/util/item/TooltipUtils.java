@@ -29,7 +29,7 @@ public class TooltipUtils {
 
     public static void buildShiftTooltip(List<Component> list, String tooltip, Style color) {
         if (Screen.hasShiftDown()) list.add(Component.translatable("tooltip." + MOD + "." + tooltip + ".shift").withStyle(color));
-        else list.add(Component.translatable("tooltip." + MOD + ".shift").withStyle(ChatFormatting.DARK_GRAY));
+        else list.add(Component.translatable("tooltip." + MOD_ID + ".shift").withStyle(ChatFormatting.DARK_GRAY));
     }
 
     public static void buildShiftTooltip(List<Component> list, String tooltip, int count, Style color) {

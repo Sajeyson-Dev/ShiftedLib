@@ -1,7 +1,5 @@
 package com.shiftedlib.util.item;
 
-import com.shiftedlib.ModGetter;
-
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.player.Player;
@@ -10,8 +8,13 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.crafting.Ingredient;
 
 public class ArmorUtils {
-    private static String armorSet;
-    private static final String TEXTURE_PATH = ModGetter.getModId() + ":textures/models/armor/";
+
+    private String mod;
+    private String name;
+
+    public ArmorUtils(String mod) {
+        this.mod = mod;
+    }
 
     /**
      * @param name Armor base name
@@ -24,8 +27,8 @@ public class ArmorUtils {
      * @param material Repair material
      * @return Created {@code ArmorMaterial} with given values
      */
-    public static ArmorMaterial newArmorTier(String name, int[] slotDurability, int[] slotDefense, float toughness, float resistance, int ench, SoundEvent sound, Item material) {
-        armorSet = name;
+    public ArmorMaterial newArmorTier(String name, int[] slotDurability, int[] slotDefense, float toughness, float resistance, int ench, SoundEvent sound, Item material) {
+        this.name = name;
         return new ArmorMaterial() {
 
             @Override
@@ -70,15 +73,16 @@ public class ArmorUtils {
         };
     }
 
-    public static String getArmorTexture(EquipmentSlot slot) {
-        if (slot == EquipmentSlot.HEAD)     return TEXTURE_PATH + armorSet + "_layer_1.png";
-        if (slot == EquipmentSlot.CHEST)    return TEXTURE_PATH + armorSet + "_layer_1.png";
-        if (slot == EquipmentSlot.LEGS)     return TEXTURE_PATH + armorSet + "_layer_2.png";
-        if (slot == EquipmentSlot.FEET)     return TEXTURE_PATH + armorSet + "_layer_1.png";
+    public String getArmorTexture(EquipmentSlot slot) {
+        var texture = mod + ":textures/models/armor/";
+        if (slot == EquipmentSlot.HEAD)     return texture + name + "_layer_1.png";
+        if (slot == EquipmentSlot.CHEST)    return texture + name + "_layer_1.png";
+        if (slot == EquipmentSlot.LEGS)     return texture + name + "_layer_2.png";
+        if (slot == EquipmentSlot.FEET)     return texture + name + "_layer_1.png";
         return null;
     }
 
-    public static boolean isFullSet(Player player, Item helmet, Item chest, Item legs, Item boots) {
+    public boolean isFullSet(Player player, Item helmet, Item chest, Item legs, Item boots) {
         if (player.isAlive()) {
             if (getArmorPiece(player, 3) == helmet && 
                 getArmorPiece(player, 2) == chest && 
@@ -90,7 +94,7 @@ public class ArmorUtils {
         return false;
     }
 
-    public static Item getArmorPiece(Player player, int slot) {
+    public Item getArmorPiece(Player player, int slot) {
         return player.getInventory().armor.get(slot).getItem();
     }
 }
